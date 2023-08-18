@@ -3,11 +3,10 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto17
+      java: openjdk8
   pre_build:
     commands:
-      - echo Nothing to do in prebuild
-      - yum install maven -y
+      - echo Nothing to do in prebuil
   build:
     commands:
       - echo Build started on `date`
