@@ -1,5 +1,4 @@
-FROM amazoncorretto:17.0.7-alpine
-VOLUME /tmp
-ADD target/spring-petclinic-3.1.0.jar app.jar
-EXPOSE 80
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM openjdk:8-jdk-alpine
+COPY target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
