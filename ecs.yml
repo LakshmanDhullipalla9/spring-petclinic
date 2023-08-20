@@ -316,7 +316,7 @@ Resources:
           - Effect: Allow
             Action: ['ecs:CreateCluster', 'ecs:DeregisterContainerInstance', 'ecs:DiscoverPollEndpoint',
               'ecs:Poll', 'ecs:RegisterContainerInstance', 'ecs:StartTelemetrySession',
-              'ecs:Submit*', 'logs:CreateLogStream', 'logs:PutLogEvents', 'ecr:GetAuthorizationToken']
+              'ecs:Submit*', 'logs:CreateLogStream', 'logs:PutLogEvents', 'ecr:GetAuthorizationToken', 'iam:CreateServiceLinkedRole']
             Resource: '*'
       - PolicyName: ecr-service
         PolicyDocument:
@@ -332,7 +332,7 @@ Resources:
         - Effect: Allow
           Principal:
             Service: [ecs-tasks.amazonaws.com]
-          Action: ['sts:AssumeRole']
+          Action: ['sts:AssumeRole', 'iam:CreateServiceLinkedRole']
       Path: /
       ManagedPolicyArns: 
         - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
@@ -352,7 +352,7 @@ Resources:
           Statement:
           - Effect: Allow
             Action: ['application-autoscaling:*', 'cloudwatch:DescribeAlarms', 'cloudwatch:PutMetricAlarm',
-              'ecs:DescribeServices', 'ecs:UpdateService', 'iam:CreateServiceLinkedRole']
+              'ecs:Submit*', 'logs:CreateLogStream', 'logs:PutLogEvents', 'ecr:GetAuthorizationToken', 'iam:CreateServiceLinkedRole']
             Resource: '*'
   EC2InstanceProfile:
     Type: AWS::IAM::InstanceProfile
