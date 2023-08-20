@@ -352,7 +352,7 @@ Resources:
           Statement:
           - Effect: Allow
             Action: ['application-autoscaling:*', 'cloudwatch:DescribeAlarms', 'cloudwatch:PutMetricAlarm',
-              'ecs:DescribeServices', 'ecs:UpdateService']
+              'ecs:DescribeServices', 'ecs:UpdateService', 'iam:CreateServiceLinkedRole']
             Resource: '*'
   EC2InstanceProfile:
     Type: AWS::IAM::InstanceProfile
