@@ -3,7 +3,7 @@ Parameters:
   DesiredCapacity:
     Type: Number
     Default: '1'
-    Description: Number of instances to launch in your ECS cluster.
+    Description: Number of instances to launch in your ECS cluste.
   Repo:
     Type: String
     Description: Repo for docker container.
